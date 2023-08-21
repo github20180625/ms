@@ -4,6 +4,8 @@ spring:
   application:
     name: user
 eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 30 # 服务续约任务的调用间隔时间
   client:
     register-with-eureka: true
     fetch-registry: true
