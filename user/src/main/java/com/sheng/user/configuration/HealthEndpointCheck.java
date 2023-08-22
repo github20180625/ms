@@ -8,11 +8,14 @@ import org.springframework.boot.actuate.health.HealthEndpoint;
 import org.springframework.boot.actuate.health.Status;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
 @Component
 @Endpoint(id = "custom")
 public class HealthEndpointCheck {
 
-    @Autowired
+//    @Autowired
+    @Resource
     private HealthEndpoint healthEndpoint;
 
     @ReadOperation
