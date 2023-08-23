@@ -28,7 +28,11 @@
         secureHealthCheckUrl
 
     3.2 eureka.server
-
+        以eureka.server开头的相关配置,主要是服务注册中心的相关配置.
+      enableSelfPreservation: 是否开启自我保护,默认为true. Eureka会统计15分钟之内心跳失败的比例占总心跳的比例低于自我保护续约百分比阈值因子,
+                                将会触发保护机制,不剔除服务提供者,如果关闭则服务注册中心将不可用的实例正确剔除.
+      renewalPercentThreshold: 自我保护续约百分比阀值因子.如果实际续约(心跳)数小于续约数阀值,则开启自我保护. 默认0.85.
+      renewalThresholdUpdateIntervalMs: 续约数阀值更新频率.
 
     3.3 eureka.client
         以eureka.client开头相关的配置,服务注册相关的配置信息,包括服务注册中心的地址,服务获取的间隔时间,可用区域等.
