@@ -29,5 +29,33 @@
 
     3.2 eureka.server
 
+
     3.3 eureka.client
+        以eureka.client开头相关的配置,服务注册相关的配置信息,包括服务注册中心的地址,服务获取的间隔时间,可用区域等.
+      enabled: 启用eureka客户端,默认为true
+      serviceUrl.defaultZone: 注册到指定的服务注册中心的url
+      fetchRegistry: 是否从eureka服务端获取注册信息.
+      registerFetchIntervalSeconds: 从eureka服务端获取注册信息的间隔时间,单位为秒,默认为30s
+      registerWithEureka: 是否要将自身的实例信息注册到eureka服务端. 默认为true
+      执行心跳续约使用的线程池的配置:
+      heartbeatExecutorThreadPoolSize: 心跳连接池的初始化线程数. 默认为2
+      heartbeatExecutorExponentialBackOffBound: 心跳超时重试延迟时间的最大乘数值. 默认为10
+
+      initialInstanceInfoReplicationIntervalSeconds: 初始化实例信息到eureka服务端的间隔时间,单位为秒,默认值为40s
+      instanceInfoReplicationIntervalSeconds: 更新实例信息的变化到eureka服务端的间隔时间,单位为秒,默认值为30s
+      eurekaServiceUrlPollIntervalSeconds: 轮询Eureka服务端地址更改的间隔时间,单位为秒.当我们与Spring Cloud Config配合,动态刷新Eureka
+                                           的serviceUrl地址时需要关注该参数.
+      eurekaServerReadTimeoutSeconds: 读取eureka server信息的超时时间,单位为秒.默认值为8s
+      eurekaServerConnectTimeoutSeconds: 连接eureka server的超时时间,单位为秒.默认值为5s
+      eurekaServerTotalConnections: 从eureka客户端到所有eureka服务端的连接总数,默认值为200
+      eurekaServerTotalConnectionsPerHost: 从eureka客户端到每个eureka服务端主机的连接总数. 默认为50
+      eurekaConnectionIdleTimeoutSeconds: eureka服务端连接的空闲关闭时间,单位为秒.默认值为30
+
+      cacheRefreshExecutorThreadPoolSize: 缓存刷新线程池的初始化线程数. 默认为2
+      cacheRefreshExecutorExponentialBackOffBound: 缓存刷新重试延迟时间的最大乘数值. 默认为10
+
+      useDnsForFetchingServiceUrls: 使用DNS来获取eureka服务端的serviceUrl. 默认false
+      preferSameZoneEureka: 是否偏好使用处于相同zone的eureka服务端. 默认为true
+      filterOnlyUpInstances: 获取实例时是否过滤,仅保留UP状态的实例.
+
     3.4 dashboard
