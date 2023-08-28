@@ -1,20 +1,17 @@
 package com.sheng.user.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.health.HealthComponent;
 import org.springframework.boot.actuate.health.HealthEndpoint;
 import org.springframework.boot.actuate.health.Status;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
 
 @Component
 @Endpoint(id = "custom")
 public class HealthEndpointCheck {
 
-//    @Autowired
     @Resource
     private HealthEndpoint healthEndpoint;
 
