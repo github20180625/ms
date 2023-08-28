@@ -1,0 +1,2 @@
+com.sheng.user.configuration.EnableCustom=\
+com.sheng.user.configuration.CustomAutoConfiguration
