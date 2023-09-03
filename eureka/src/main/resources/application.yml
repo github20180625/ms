@@ -1,5 +1,11 @@
 server:
   port: 8761
+  tomcat:
+    max-connections: 2000 #最大连接数
+    accept-count: 200 #任务队列最大等待数
+    threads:
+      max: 200 #线程池最大线程
+      min-spare: 10 #线程池最小线程
 spring:
   application:
     name: eureka-server
