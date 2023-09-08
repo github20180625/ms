@@ -2,6 +2,7 @@ package com.sheng.user.user;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -20,7 +21,9 @@ public class UserController implements BeanFactoryAware {
 
     @RequestMapping("/get")
     public String get() {
-        return "get";
+        ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:3001/store/get", String.class);
+        String storeGet = response.getBody();
+        return "get" + storeGet;
     }
 
     @Override

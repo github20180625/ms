@@ -1,15 +1,17 @@
-package com.sheng.user;
+package com.sheng.store;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class UserApplication {
+@EnableHystrix
+public class StoreApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class, args);
+        SpringApplication.run(StoreApplication.class, args);
     }
 
 }
