@@ -1,33 +1,33 @@
 package com.sheng.user.user;
 
+import com.sheng.user.openapi.StoreApi;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.http.ResponseEntity;
+import org.springframework.context.EnvironmentAware;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/user")
 public class UserController implements BeanFactoryAware {
 
-    private RestTemplate restTemplate;
-
     private BeanFactory beanFactory;
 
-    public UserController(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+    private StoreApi storeApi;
+
+    public UserController(StoreApi storeApi) {
+        this.storeApi = storeApi;
     }
 
     @RequestMapping("/get")
     public String get() {
-        ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:3001/store/get", String.class);
-        String storeGet = response.getBody();
-        return "get" + storeGet;
+        return "get" + storeApi.get();
     }
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) {
         this.beanFactory = beanFactory;
     }
+
 }

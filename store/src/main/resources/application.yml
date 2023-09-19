@@ -6,13 +6,15 @@ spring:
 eureka:
   instance:
     lease-expiration-duration-in-seconds: 30
+    prefer-ip-address: true
+    instance-id: store-service
   client:
     enabled: true
     register-with-eureka: true
     fetch-registry: true
     registry-fetch-interval-seconds: 30
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://172.17.0.2:8761/eureka/,http://172.17.0.3:8762/eureka/
 
 # actuator
 management:

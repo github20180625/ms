@@ -1,11 +1,17 @@
 server:
-  port: 1112
+  port: 8762
+
 spring:
   application:
-    name: eureka-server
+    name: eureka
+
 eureka:
   instance:
-    hostname: peer2
+    instance-id: eureka
+    prefer-ip-address: true
   client:
+    enabled: true
+    fetch-registry: false
+    register-with-eureka: true
     serviceUrl:
-      defaultZone: http://peer1:1111/eureka/
+      defaultZone: http://${peer1.hostname:127.0.0.1}:8761/eureka/

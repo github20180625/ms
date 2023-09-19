@@ -8,12 +8,19 @@ server:
       min-spare: 10 #线程池最小线程
 spring:
   application:
-    name: eureka-server
+    name: eureka
 eureka:
   instance:
+    prefer-ip-address: true
+    instance-id: eureka
     hostname: localhost
   client:
     register-with-eureka: false # 是否向注册中心注册自己
     fetch-registry: false # 是否取检索服务
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+peer1:
+  hostname: 172.17.0.2
+peer2:
+  hostname: 172.17.0.3
