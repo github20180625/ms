@@ -1,0 +1,19 @@
+server:
+  port: 4001
+spring:
+  application:
+    name: queue
+
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: 'my-group'
+    send-message-timeout: 300000
+  consumer:
+    group: 'my-group1'
+
+mq:
+  rocket:
+    topic:
+      default: 'default_topic'
+      user: 'user_topic'
