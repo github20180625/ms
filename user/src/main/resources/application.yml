@@ -16,6 +16,18 @@ eureka:
     service-url:
       defaultZone: http://172.17.0.2:8761/eureka/,http://172.17.0.3:8762/eureka/
 
+store:
+  ribbon:
+    ConnectTimeout: 500
+    ReadTimeout: 2000
+    OkToRetryOnAllOperations: true
+    MaxAutoRetriesNextServer: 2 # 重新选择实例重试
+    MaxAutoRetries: 1 # 使用选中的实例重试
+
+feign:
+  hystrix:
+    enabled: false
+
 # actuator 配置公开的端点
 management:
   endpoints:
